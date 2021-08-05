@@ -26,6 +26,7 @@ class VotersManager(BaseUserManager):
         extra_data.setdefault("is_active", True)
         extra_data.setdefault("is_staff", True)
         extra_data.setdefault("is_superuser", True)
+        extra_data.setdefault("user_type", "AGENT")
 
         new_superuser = self.create_voter(email, firstname, lastname, phone, **extra_data)
         return new_superuser
@@ -66,6 +67,12 @@ class Voters(AbstractBaseUser, PermissionsMixin):
             self.polliing_unit_unique_id = polliing_unit_unique_id
         super().save(*args, **kwargs)
         return self.__str__()
+
+    def has_module_perms(self, app_label: str) -> bool:
+        return True
+
+    def has_perm(self, obj=None) -> bool:
+        return True
 
     class Meta:
         verbose_name = "Agents (Voters)"
