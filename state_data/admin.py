@@ -31,6 +31,14 @@ class StateAdmin(admin.ModelAdmin):
             "fields": ["state_name", "state_id"]
         })
     ]
+    def save_model(self, request: HttpRequest, obj: States, form=None, change=None) -> None:
+        state_name = obj
+        for row in States.STATES:
+            if str(state_name) == row[1]:
+                self.state_id = row[0]
+                print("\n\t ID: ", row[0])
+                break
+        return super().save_model(request,obj,form, change)
 
 
 @admin.register(LGA)

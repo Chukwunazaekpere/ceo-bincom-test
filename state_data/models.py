@@ -44,15 +44,22 @@ class States(models.Model):
         ("37", 'Zamfara'),
         ("251", 'Lagos')
     ]
-    state_name = models.CharField(max_length=30, choices=STATES)
-    state_id = models.CharField(max_length=5, help_text="This field is automatically populated. But you can input your preferred value, if need be.")
+    state_name = models.CharField(max_length=30, choices=STATES, unique=True, error_messages={"invalid_input": "This state has been registered already."})
+    state_id = models.CharField(max_length=12, unique=True, help_text="This field is automatically populated. But you can input your preferred value, if need be.")
 
     class Meta:
         verbose_name = "State"
         verbose_name_plural = "States"
 
-    def __str__(self) -> str:
-        return self.state_name
+    def __str__(self):
+        state_id = self.state_id
+        state_name = ""
+        for row in self.STATES:
+            if str(state_id) == row[0]:
+                state_name = row[1]
+                break
+        return state_name
+        
 
 
 class Party(models.Model):

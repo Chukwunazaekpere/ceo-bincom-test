@@ -12,8 +12,8 @@ Voters = get_user_model()
 
 
 class ANNOUNCED_LGA_RESULTS(models.Model):
-    lga_name = models.ForeignKey(LGA, on_delete=models.CASCADE)
-    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True)
+    lga_name = models.ForeignKey(LGA, on_delete=models.CASCADE, help_text="If you can't find the LGA, then add it, using the green plus button")
+    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True, help_text="If you can't find the party, then add it, using the green plus button")
     party_score  = models.PositiveIntegerField()
     entered_by_user = models.ForeignKey(Voters, on_delete=models.SET_NULL, null=True)
     date_entered  = models.DateTimeField(auto_now_add=True)
@@ -28,8 +28,8 @@ class ANNOUNCED_LGA_RESULTS(models.Model):
 
 
 class ANNOUNCED_PU_RESULTS(models.Model):
-    lga_name = models.ForeignKey(LGA,on_delete=models.SET_NULL, null=True)
-    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True)
+    lga_name = models.ForeignKey(LGA,on_delete=models.SET_NULL, null=True, help_text="If you can't find the LGA, then add it, using the green plus button")
+    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True, help_text="If you can't find the party, then add it, using the green plus button")
     party_score  = models.PositiveIntegerField()
     entered_by_user = models.ForeignKey(Voters, on_delete=models.SET_NULL, null=True)
     date_entered  = models.DateTimeField(auto_now_add=True)
@@ -45,8 +45,8 @@ class ANNOUNCED_PU_RESULTS(models.Model):
 
 
 class ANNOUNCED_WARD_RESULTS(models.Model):
-    ward_name = models.ForeignKey(Ward, on_delete=models.CASCADE)
-    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True)
+    ward_name = models.ForeignKey(Ward, on_delete=models.CASCADE, help_text="If you can't find the ward, then add it, using the green plus button")
+    party_abbreviation = models.ForeignKey(Party, on_delete=models.SET_NULL, null=True, help_text="If you can't find the party, then add it, using the green plus button")
     party_score  = models.PositiveIntegerField()
     entered_by_user = models.ForeignKey(Voters, on_delete=models.SET_NULL, null=True)
     date_entered  = models.DateTimeField(auto_now_add=True)
