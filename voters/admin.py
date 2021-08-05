@@ -7,6 +7,9 @@ from django.contrib.auth.admin import (
 from django.contrib.auth.models import (
     Group
 )
+from .forms import (
+    VotersRegistrationForm
+)
 
 from .models import Voters
 # from django.contrib.auth 
@@ -16,7 +19,7 @@ class VotersAdmin(BaseUserAdmin):
     list_display = ["firstname", "lastname", "email",  "phone", "polliing_unit_unique_id", "registration_date"]
     list_filter = ["polliing_unit_unique_id"] 
     search_fields = ["polliing_unit_unique_id"]
-    
+    add_form = VotersRegistrationForm
 
     fieldsets = [
         (None, {

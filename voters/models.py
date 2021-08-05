@@ -48,7 +48,7 @@ class Voters(AbstractBaseUser, PermissionsMixin):
     polliing_unit_unique_id = models.CharField(max_length=10, unique=True, verbose_name="Polliing-Unit Unique Id")
 
     password = models.CharField(max_length=180)
-    last_login    = models.DateTimeField(auto_now=True, auto_now_add=False)
+    last_login = models.DateTimeField(auto_now=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)

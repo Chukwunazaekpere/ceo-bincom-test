@@ -51,6 +51,7 @@ class States(models.Model):
         verbose_name = "State"
         verbose_name_plural = "States"
 
+
     def __str__(self):
         state_id = self.state_id
         state_name = ""
