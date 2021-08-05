@@ -52,7 +52,7 @@ class PartyAdmin(admin.ModelAdmin):
 
 @admin.register(Ward)
 class WardAdmin(admin.ModelAdmin):
-    list_display = ["ward_name", "ward_id", "lga_id",]
+    list_display = ["ward_name", "ward_id", "lga_id", "ward_description", "entered_by_user", "date_entered"]
     list_filter = ["lga_id"]
     search_fields = ["ward_name"]
     prepopulated_fields = {"ward_id": ["ward_name"]}

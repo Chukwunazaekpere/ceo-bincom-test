@@ -38,17 +38,16 @@ class Voters(AbstractBaseUser, PermissionsMixin):
         ("AGENT", "AGENT"),
         ("VOTER", "VOTER")
     ]
-    firstname = models.CharField(max_length=50, help_text="voter's firstname")
-    lastname = models.CharField(max_length=50, help_text="voter's lastname (Surname)")
-    address = models.CharField(max_length=150, help_text="voter's address (Optional).", null=True, blank=True)
+    firstname = models.CharField(max_length=50, help_text="Agent's firstname")
+    lastname = models.CharField(max_length=50, help_text="Agent's lastname (Surname)")
+    address = models.CharField(max_length=150, help_text="Agent's address (Optional).", null=True, blank=True)
     registration_date = models.DateTimeField(auto_now_add=True, auto_now=False, editable=False)
     user_type = models.CharField(max_length=10, choices=USER_MODE, default="VOTER")
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=11)
-    polliing_unit_unique_id = models.CharField(max_length=10, unique=True)
+    polliing_unit_unique_id = models.CharField(max_length=10, unique=True, verbose_name="Polliing-Unit Unique Id")
 
     password = models.CharField(max_length=180)
-    date_registered   = models.DateTimeField(auto_now=False, auto_now_add=True)
     last_login    = models.DateTimeField(auto_now=True, auto_now_add=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

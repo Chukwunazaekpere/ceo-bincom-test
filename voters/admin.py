@@ -13,20 +13,20 @@ from .models import Voters
 
 @admin.register(Voters)
 class VotersAdmin(BaseUserAdmin):
-    list_display = ["firstname", "lastname"]
+    list_display = ["firstname", "lastname", "email",  "phone", "polliing_unit_unique_id", "registration_date"]
     list_filter = ["polliing_unit_unique_id"] 
     search_fields = ["polliing_unit_unique_id"]
     
 
     fieldsets = [
         (None, {
-            "fields": ["firstname", "lastname"]
+            "fields": ["firstname", "lastname", "email", "phone", "password", ]
         })
     ]
 
     add_fieldsets = [
         (None, {
-            "fields": ["firstname", "lastname"]
+            "fields": ["firstname", "lastname", "email", "phone", "password", "polliing_unit_unique_id"]
         })
     ]
 
