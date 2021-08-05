@@ -121,3 +121,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "voters.Voters"
+
+#  Heroku settigs
+import django_heroku
+django_heroku.settings(locals())
