@@ -23,13 +23,13 @@ class VotersAdmin(BaseUserAdmin):
 
     fieldsets = [
         (None, {
-            "fields": ["firstname", "lastname", "email", "phone", "password", ]
+            "fields": ["firstname", "lastname", "email", "phone", "password"]
         })
     ]
 
     add_fieldsets = [
         (None, {
-            "fields": ["firstname", "lastname", "email", "phone", "password", "polliing_unit_unique_id"]
+            "fields": ["firstname", "lastname", "email", "phone", "password", "confirm_password", "polliing_unit_unique_id"]
         })
     ]
 
